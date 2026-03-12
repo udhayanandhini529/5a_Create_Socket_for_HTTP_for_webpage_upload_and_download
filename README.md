@@ -54,7 +54,7 @@ while True:
 
     c.close()
  ```
-    Client.py 
+ Client.py 
 
 ```
     import socket
