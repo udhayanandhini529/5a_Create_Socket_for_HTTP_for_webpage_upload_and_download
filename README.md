@@ -24,7 +24,7 @@ Server.py
 import socket
 
 s = socket.socket()
-s.bind(("localhost",3024))
+s.bind(("localhost",8080))
 s.listen(1)
 
 print("Server running...")
@@ -57,13 +57,14 @@ while True:
  Client.py 
 
 ```
-    import socket
+import socket
 
 s = socket.socket()
-s.connect(("localhost",3024))
+s.connect(("localhost",8080))
 
 ch = input("1.Download 2.Upload : ")
 
+# Download webpage
 if ch == "1":
     req = "GET / HTTP/1.1\nHost: localhost\n\n"
     s.send(req.encode())
@@ -71,6 +72,7 @@ if ch == "1":
     data = s.recv(4096)
     print(data.decode())
 
+# Upload file
 else:
     msg = input("Enter data to upload: ")
 
@@ -82,23 +84,13 @@ else:
 
 s.close()
 ```
-Index.html
-
-```
-<html>
-    <head>
-        <title>index html server</title>
-    </head>
-    <body>
-        <h1>Hello from python socket server</h1>
-        
-    </body>
-   
-</html>
-```
 
 ## OUTPUT
-![alt text](image.png)
-![alt text](image-1.png)
+
+server.py:![alt text](image-2.png)
+client.py: 1.download 
+![alt text](image-3.png)
+2.upload:
+![alt text](image-4.png)
 ## Result
 Thus the socket for HTTP for web page upload and download created and Executed
