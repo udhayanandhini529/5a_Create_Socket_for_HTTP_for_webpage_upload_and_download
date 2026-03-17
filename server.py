@@ -1,7 +1,7 @@
 import socket
 
 s = socket.socket()
-s.bind(("localhost",3024))
+s.bind(("localhost",8080))
 s.listen(1)
 
 print("Server running...")
